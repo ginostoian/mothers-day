@@ -22,110 +22,6 @@ export const heroMessageRo: HeroMessageRo = {
   ctaLabel: "Începe povestea",
 };
 
-const unsplashPool: Array<{
-  src: string;
-  creditName: string;
-  creditUrl: string;
-}> = [
-  {
-    src: "https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?auto=format&fit=crop&w=1600&q=80",
-    creditName: "Kelly Sikkema",
-    creditUrl: "https://unsplash.com/photos/6aY-6B3MiZ4",
-  },
-  {
-    src: "https://images.unsplash.com/photo-1478131143081-80f7f84ca84d?auto=format&fit=crop&w=1600&q=80",
-    creditName: "Josh Willink",
-    creditUrl: "https://unsplash.com/photos/-h9uJQ4r4SU",
-  },
-  {
-    src: "https://images.unsplash.com/photo-1492724441997-5dc865305da7?auto=format&fit=crop&w=1600&q=80",
-    creditName: "Jordan Whitt",
-    creditUrl: "https://unsplash.com/photos/EERxy8zrwOo",
-  },
-  {
-    src: "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?auto=format&fit=crop&w=1600&q=80",
-    creditName: "Avel Chuklanov",
-    creditUrl: "https://unsplash.com/photos/DUmFLtMeAbQ",
-  },
-  {
-    src: "https://images.unsplash.com/photo-1519340333755-c1aa5571fd46?auto=format&fit=crop&w=1600&q=80",
-    creditName: "Nathan Dumlao",
-    creditUrl: "https://unsplash.com/photos/Ewa5fkCg4E8",
-  },
-  {
-    src: "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=1600&q=80",
-    creditName: "Tim Mossholder",
-    creditUrl: "https://unsplash.com/photos/8g0D8ZfFXyA",
-  },
-  {
-    src: "https://images.unsplash.com/photo-1545239351-1141bd82e8a6?auto=format&fit=crop&w=1600&q=80",
-    creditName: "Jonathan Borba",
-    creditUrl: "https://unsplash.com/photos/8l8Yl2ruUsg",
-  },
-  {
-    src: "https://images.unsplash.com/photo-1511895426328-dc8714191300?auto=format&fit=crop&w=1600&q=80",
-    creditName: "Chewy",
-    creditUrl: "https://unsplash.com/photos/0QfJ7w7W3jA",
-  },
-  {
-    src: "https://images.unsplash.com/photo-1516483638261-f4dbaf036963?auto=format&fit=crop&w=1600&q=80",
-    creditName: "Janko Ferlič",
-    creditUrl: "https://unsplash.com/photos/sfL_QOnmy00",
-  },
-  {
-    src: "https://images.unsplash.com/photo-1541427468627-a89a96e5ca1d?auto=format&fit=crop&w=1600&q=80",
-    creditName: "Patricia Prudente",
-    creditUrl: "https://unsplash.com/photos/VmM6lyT0R8I",
-  },
-  {
-    src: "https://images.unsplash.com/photo-1511895426328-dc8714191300?auto=format&fit=crop&w=1800&q=80",
-    creditName: "Chewy",
-    creditUrl: "https://unsplash.com/photos/0QfJ7w7W3jA",
-  },
-  {
-    src: "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=1600&q=80",
-    creditName: "Joseph Gonzalez",
-    creditUrl: "https://unsplash.com/photos/iFgRcqHznqg",
-  },
-  {
-    src: "https://images.unsplash.com/photo-1523438885200-e635ba2c371e?auto=format&fit=crop&w=1600&q=80",
-    creditName: "Liane Metzler",
-    creditUrl: "https://unsplash.com/photos/uEhR8Lk5YY0",
-  },
-  {
-    src: "https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?auto=format&fit=crop&w=1600&q=80",
-    creditName: "Fernando @cferdo",
-    creditUrl: "https://unsplash.com/photos/5fQfP6S4z4M",
-  },
-  {
-    src: "https://images.unsplash.com/photo-1519638399535-1b036603ac77?auto=format&fit=crop&w=1600&q=80",
-    creditName: "Ana Tablas",
-    creditUrl: "https://unsplash.com/photos/oB0xbLwcaMw",
-  },
-  {
-    src: "https://images.unsplash.com/photo-1511988617509-a57c8a288659?auto=format&fit=crop&w=1600&q=80",
-    creditName: "Jonathan Borba",
-    creditUrl: "https://unsplash.com/photos/lrQPTQs7nQQ",
-  },
-];
-
-const buildPhotos = (
-  chapterKey: string,
-  captions: string[],
-  startIndex: number,
-): PhotoAsset[] =>
-  captions.map((captionRo, index) => {
-    const pick = unsplashPool[(startIndex + index) % unsplashPool.length];
-    return {
-      id: `${chapterKey}-${index + 1}`,
-      src: pick.src,
-      altRo: `${captionRo} - ${chapterKey}`,
-      captionRo,
-      creditName: pick.creditName,
-      creditUrl: pick.creditUrl,
-    };
-  });
-
 const buildFamilyArchivePhotos = (
   chapterKey: string,
   photos: Array<{
@@ -154,18 +50,38 @@ export const chapters: StoryChapter[] = [
       "Această zi începe cu recunoștință. Nu doar pentru că ești mamă, ci pentru felul în care ai transformat casa noastră în locul unde iubirea are ritm, ordine și curaj.",
     truthRo:
       "Adevăr despre Simona: atunci când iubești, o faci total, fără jumătăți de măsură.",
-    photos: buildPhotos(
-      "prolog",
-      [
-        "Lumina care deschide povestea noastră",
-        "Primul zâmbet al dimineții de 8 Martie",
-        "Calmul tău care ține familia unită",
-        "Privirea care spune totul fără cuvinte",
-        "Frumusețea ta discretă și puternică",
-        "Începutul unei noi pagini în album",
-      ],
-      0,
-    ),
+    photos: buildFamilyArchivePhotos("prolog", [
+      {
+        src: "/photos/inainte-de-copii/inainte-08.jpg",
+        altRo: "Simona, portret luminos înainte de copii",
+        captionRo: "Lumina care deschide povestea noastră",
+      },
+      {
+        src: "/photos/inainte-de-copii/inainte-05.jpg",
+        altRo: "Simona și soțul ei într-un moment de cuplu",
+        captionRo: "Primul zâmbet al dimineții de 8 Martie",
+      },
+      {
+        src: "/photos/sarcina-robert/robert-sarcina-01.jpg",
+        altRo: "Simona însărcinată cu Robert, moment tandru",
+        captionRo: "Calmul tău care ține familia unită",
+      },
+      {
+        src: "/photos/sarcina-robert/robert-sarcina-08.jpg",
+        altRo: "Simona în perioada sarcinii cu Robert",
+        captionRo: "Privirea care spune totul fără cuvinte",
+      },
+      {
+        src: "/photos/dupa-robert/robert-dupa-07.jpg",
+        altRo: "Simona după venirea lui Robert",
+        captionRo: "Frumusețea ta discretă și puternică",
+      },
+      {
+        src: "/photos/mama-a-doi-copii/check3.jpg",
+        altRo: "Simona, mamă a doi copii, într-un moment cald de familie",
+        captionRo: "Începutul unei noi pagini în album",
+      },
+    ]),
   },
   {
     slug: "inainte-de-robert",
