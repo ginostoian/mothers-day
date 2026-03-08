@@ -1,0 +1,88 @@
+:root {
+  --font-display: "Bodoni Moda", "Didot", "Iowan Old Style", "Palatino Linotype", serif;
+  --font-body: "Avenir Next", "Optima", "Segoe UI", sans-serif;
+  --bg-main: radial-gradient(circle at 18% 18%, #fff7fb 0%, #fbeef3 33%, #f8ebe2 64%, #f5e4dc 100%);
+  --bg-panel: rgba(255, 255, 255, 0.72);
+  --bg-panel-soft: rgba(255, 255, 255, 0.5);
+  --color-ink: #5d4850;
+  --color-muted: #8b747e;
+  --color-gold: #d6b193;
+  --color-rose: #c992a7;
+  --color-sunset: #e6ae95;
+  --color-ivory: #f5e5d8;
+  --color-soft: #fff8fb;
+  --color-border: rgba(201, 146, 167, 0.35);
+  --ring: rgba(201, 146, 167, 0.45);
+  --shadow-cinematic: 0 24px 50px rgba(121, 94, 107, 0.2);
+}
+
+.cinematic-layer::before,
+.cinematic-layer::after {
+  content: "";
+  position: fixed;
+  pointer-events: none;
+  z-index: -1;
+  inset: 0;
+}
+
+.cinematic-layer::before {
+  background:
+    radial-gradient(circle at 82% 18%, rgba(231, 170, 191, 0.32), transparent 40%),
+    radial-gradient(circle at 10% 78%, rgba(242, 199, 176, 0.3), transparent 36%);
+}
+
+.cinematic-layer::after {
+  background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.28), rgba(255, 255, 255, 0.5));
+}
+
+.texture-overlay {
+  position: relative;
+}
+
+.texture-overlay::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: radial-gradient(rgba(156, 122, 138, 0.08) 0.8px, transparent 0.8px);
+  background-size: 2px 2px;
+  mix-blend-mode: soft-light;
+}
+
+.glass-card {
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.82), rgba(255, 244, 248, 0.62));
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-cinematic);
+  backdrop-filter: blur(7px);
+}
+
+.accent-gold {
+  --accent-color: var(--color-gold);
+}
+
+.accent-rose {
+  --accent-color: var(--color-rose);
+}
+
+.accent-sunset {
+  --accent-color: var(--color-sunset);
+}
+
+.accent-ivory {
+  --accent-color: var(--color-ivory);
+}
+
+.timeline-line {
+  background: linear-gradient(180deg, rgba(214, 177, 147, 0.25), rgba(201, 146, 167, 0.85), rgba(214, 177, 147, 0.25));
+}
+
+.story-title {
+  font-family: var(--font-display);
+  letter-spacing: 0.03em;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    scroll-behavior: auto !important;
+  }
+}
